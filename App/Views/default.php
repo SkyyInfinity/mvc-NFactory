@@ -20,10 +20,13 @@
                     <h1>Restaurant</h1>
                 </div>
                 <ul>
-                    <li><a href="#">LIEN</a></li>
-                    <li><a href="#">LIEN</a></li>
-                    <li><a href="#">LIEN</a></li>
-                    <li><a href="#">LIEN</a></li>
+                   
+                    <li><a href="">Acceuil</a></li>
+                    <li><a href="index.php?page=register">Inscription</a></li>
+                    <li><a href="index.php?page=login">Connexion</a></li>
+                    <li><a href="#">Reserver</a></li>
+                    <li><a href="#">Commander</a></li>
+
                 </ul>
             </nav>
         </div>
