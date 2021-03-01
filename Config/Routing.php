@@ -14,6 +14,18 @@ if (isset($_GET['page']) && $_GET['page'] == 'singup') {
     $connection->removeUser();
 }
 
+
+switch ($page) {
+    case 'home':
+        // $categorie = new CategorieController();
+        // $categorie->home();
+        break;
+    default:
+        // $categorie = new CategorieController();
+        // $categorie->home();
+        break;
+}
+
 /**
  * Créer routing
  * Dans controller proposer des url de base.
