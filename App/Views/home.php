@@ -1,5 +1,5 @@
 <?php
 
 foreach ($meals as $meal) {
-  echo $meal['Name'];
+  echo $meal->Name;
 }

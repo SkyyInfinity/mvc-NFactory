@@ -52,7 +52,7 @@ class Model extends Database{
     {
         $orderList = ' ORDER BY ';
         foreach ($order as $criteria => $value) {
-            $orderList .= $criteria . ' "' . $value . '", ';
+            $orderList .= $criteria . ' ' . $value . ', ';
         }
         return substr($orderList, 0, -2);
     }
@@ -96,12 +96,7 @@ class Model extends Database{
         }
     }
 
-    public function readAll():array
-    {
 
-       return $this->db->getData("SELECT * FROM $this->table");
-
-    }
 
     /**
      * Insert informations in Database
