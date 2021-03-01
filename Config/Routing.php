@@ -1,8 +1,13 @@
 <?php
 
-// use App\Controller\ConnectionController;
+use App\Controller\MealController;
 
 // $connection = new ConnectionController();
+if (!empty($_GET["page"])) {
+$page = $_GET["page"];
+} else {
+    $page = "home";
+}
 
 if (isset($_GET['page']) && $_GET['page'] == 'singup') {
     $connection->signup();
@@ -17,12 +22,12 @@ if (isset($_GET['page']) && $_GET['page'] == 'singup') {
 
 switch ($page) {
     case 'home':
-        // $categorie = new CategorieController();
-        // $categorie->home();
+         $meal = new MealController();
+         $meal->home();
         break;
     default:
-        // $categorie = new CategorieController();
-        // $categorie->home();
+         $meal = new MealController();
+         $meal->home();
         break;
 }
 
@@ -34,8 +39,8 @@ switch ($page) {
 /**
  * Au téléchargement si juste back-end envoyer sauvegarde comme ça. Prévoir dans le controller les url des templates à appeler.
  * Ajouter dans notice quelles routes appeler
- * 
+ *
  * Si ajout template, adapter template à routing et incorporer les url dans les controller
- * 
+ *
  * Si ajout d'autres modules prévoir script qui incorpore les diférrents modules et donc modifier routing et url de pages pour chaque site
  */

@@ -16,7 +16,7 @@ class Autoloader{
         $class = str_replace('\\', '/', $class);
         require ROOT . '/' . $class . '.php';
     }
-    
+
     /**
      * Récupère et passe le chemin de la class à appeler
      *
@@ -24,5 +24,5 @@ class Autoloader{
      */
     public static function register(){
         spl_autoload_register(array(__CLASS__, 'autoload'));
-    } 
+    }
 }
