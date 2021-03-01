@@ -1,7 +1,7 @@
 <?php
 namespace App\Model;
 
-use Vendor\Model\Model;
+use Vendor\Model\Query;
 
 /**
  * @method ReadAll() | Récupère tous les catégories
@@ -9,7 +9,7 @@ use Vendor\Model\Model;
  * @method delete(int $id) | Supprime une catégorie en fonction de son id
  * @method create($data) | Enregistre une catégorie dans la BDD
  */
-class MealModel extends Model{
+class MealModel extends Query{
 
     /**
      * Nom de la table

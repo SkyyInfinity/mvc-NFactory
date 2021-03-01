@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Restaurant | <?= $title ?></title>
+    <title>Restaurant | <?php if(!empty($title)){echo $title;}; ?></title>
 </head>
 
 <body>

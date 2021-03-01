@@ -18,7 +18,7 @@ class MealController extends Controller{
     {
         $mealModel = new MealModel();
 
-        $meals = $mealModel->readAll();
+        $meals = $mealModel->findAll();
 
 
         $this->render("home", [

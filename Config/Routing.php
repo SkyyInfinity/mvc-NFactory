@@ -9,17 +9,6 @@ $page = $_GET["page"];
     $page = "home";
 }
 
-if (isset($_GET['page']) && $_GET['page'] == 'singup') {
-    $connection->signup();
-} elseif (isset($_GET['page']) && $_GET['page'] == 'login') {
-    $connection->login();
-} elseif (isset($_GET['page']) && $_GET['page'] == 'logout') {
-    $connection->logout();
-} elseif (isset($_GET['page']) && $_GET['page'] == 'removeUser') {
-    $connection->removeUser();
-}
-
-
 switch ($page) {
     case 'home':
          $meal = new MealController();
