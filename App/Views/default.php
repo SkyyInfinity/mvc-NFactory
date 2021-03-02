@@ -7,7 +7,12 @@
     <meta name="keywords" content="html,css,formation">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome-4.3.0.min.css">
+    <link rel="stylesheet" href="../assets/css/normalize-3.0.3.min.css">
+    <link rel="stylesheet" href="../assets/css/3wa-resto.css">
+    <link rel="stylesheet" href="../assets/css/ui-button.css">
+    <link rel="stylesheet" href="../assets/css/ui-form.css">
+    <link rel="stylesheet" href="../assets/css/ui-table.css">
     <title>Restaurant | <?php if(!empty($title)){echo $title;}; ?></title>
 </head>
 
@@ -17,15 +22,16 @@
         <div class="wrap">
             <nav>
                 <div class="logo">
-                    <h1>Restaurant</h1>
+                    <a href="index.php?page=home"><h1>Restaurant <span>| Made in America !</span></h1></a>
                 </div>
                 <ul>
-                   
-                    <li><a href="index.php?page=home">Acceuil</a></li>
-                    <li><a href="index.php?page=register">Inscription</a></li>
-                    <li><a href="index.php?page=login">Connexion</a></li>
-                    <li><a href="#">Reserver</a></li>
-                    <li><a href="#">Commander</a></li>
+                    <?php if(isset($_SESSION['user'])) : ?>
+                    <li><a class="button button-primary" href="#">Reserver</a></li>
+                    <li><a class="button button-primary" href="#">Commander</a></li>
+                    <?php else : ?>
+                    <li><a class="button button-primary" href="index.php?page=register">Créer un compte</a></li>
+                    <li><a class="button button-primary" href="index.php?page=login">Se connecter</a></li>
+                    <?php endif; ?>
 
                 </ul>
             </nav>

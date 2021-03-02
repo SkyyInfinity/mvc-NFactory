@@ -21,11 +21,10 @@ a:hover
 body
 {
     /* structure */
-    border-top: 1.5em solid #EF4036;
-    padding: 1em 5em;
+    /* border-top: 1.5em solid #EF4036; */
 
     /* presentation */
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 fieldset
@@ -65,8 +64,9 @@ footer .fa-heart
 h1
 {
     color: #EF4036;
-    font-family: 'Oleo Script Swash Caps', cursive;
-    letter-spacing: 0.15em;
+    font-weight: bold;
+    /* font-family: 'Oleo Script Swash Caps', cursive; */
+    /* letter-spacing: 0.15em; */
     text-align: center;
 }
 h1 a,
@@ -91,7 +91,7 @@ h2
 
 html
 {
-    background: url('../images/background.png') repeat;
+    background: url('../img/background.png') repeat;
     overflow-y: scroll;
 }
 
@@ -266,4 +266,97 @@ html
 .invoice .city
 {
     text-transform: uppercase;
+}
+
+
+
+/* _______CUSTOM_______*/
+p {
+    margin: 0;
+}
+ul {
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+.wrap {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+.wrap2 {
+    width: 100%;
+    max-width: 968px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+#l-header,
+#l-footer {
+    padding: 15px 0;
+    z-index: 999;
+    background: url('../img/background.png') repeat;
+}
+#l-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* border-bottom: 3px solid #EF4036; */
+    -webkit-box-shadow: 0px 15px 30px 0px rgba(0,0,0,0.2); 
+    box-shadow: 0px 15px 30px 0px rgba(0,0,0,0.2);
+}
+#l-content {
+    margin: 150px 0;
+}
+#l-footer {
+    /* border-bottom: 3px solid #EF4036; */
+    -webkit-box-shadow: 15px 0px 30px 0px rgba(0,0,0,0.2); 
+    box-shadow: 15px 0px 30px 0px rgba(0,0,0,0.2);
+}
+.logo h1 span {
+    font-size: .7em;
+    font-weight: 400;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul li {
+    margin-left: 2em;
+}
+.meals-links li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.meals-links li .img {
+    width: 30%;
+    margin-right: 50px;
+}
+.meals-links li .img img {
+    width: 100%;
+    object-fit: cover;
+}
+.meals-links li .info {
+    width: 70%;
+}
+h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin: 2em 0;
+}
+span.price {
+    margin-top: 20px;
+    display: block;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 100%;
 }

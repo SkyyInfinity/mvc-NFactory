@@ -2,7 +2,6 @@
 
 namespace Vendor\Model;
 
-use Vendor\Model\Model;
 
 class Query extends Model
 {

@@ -1,6 +1,7 @@
 <?php
 namespace App\Model;
 
+use Vendor\Model\Model;
 use Vendor\Model\Query;
 
 /**
@@ -18,6 +19,9 @@ class UserModel extends Query{
      */
     protected $table = "user";
 
+    
+    
+
     /**
      * Met à jour une catégorie dans la BDD
      *
@@ -30,6 +34,8 @@ class UserModel extends Query{
                         Name = :Name
                         WHERE id = $id";
 
-        $this->db->postData($statement, $data);
+        $this->db->insert($statement, $data);
     }
+
+    
 }

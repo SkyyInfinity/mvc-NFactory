@@ -123,3 +123,75 @@ function showJson($data) {
     die('Error in json encoding');
   }
 }
+
+////////////////////Additional functions /////////////////////////
+function validDate($errors,$value,$key){
+  // PENSER A METTRE max="9999-12-31" comme attribut dans l'input date
+  if(!empty($value)){
+    $now = New DateTime("now");
+    $datelimit = New DateTime("now");
+    $datelimit->sub(new DateInterval('P120Y'));
+    $date = New DateTime($value);
+
+
+    $dateformate = $date->format('m-d-Y');
+    $datexplode = explode('-', $dateformate);
+    $month = $datexplode[0];
+    $day = $datexplode[1];
+    $year = $datexplode[2];
+
+    if (checkdate($month, $day, $year) == true){
+      if ($date < $datelimit == true) {
+        $errors[$key] = 'Maître yoda vous n\'êtes pas...';
+      }
+      if ($date > $now == true) {
+        $errors[$key] = 'Veuillez renseigner une date passée';
+      }
+    // SI checkdate renvoie false
+    }
+    else {
+      $errors[$key] = 'Veuillez renseigner une date valide';
+    }
+  }
+  // SI DATE EST VIDE
+  else {
+    $errors[$key] = 'Veuillez renseigner une date';
+  }
+  return $errors;
+}
+
+
+function validPostal($errors,$value,$key){
+  if(!empty($value)){
+    if(!is_numeric($value) || strlen($value) != 5) {
+      $errors[$key] = 'Veuillez renseigner un code postal à 5 chiffres';
+    }
+  }
+  else {
+    $errors[$key] = 'Veuillez renseigner un code postal';
+  }
+  return $errors;
+}
+
+
+function validPostalNull($errors,$value,$key){
+  if(strlen($value) == 0) {
+    return $errors;
+  }
+  if(!is_numeric($value) || strlen($value) != 5) {
+    $errors[$key] = 'Veuillez renseigner un code postal à 5 chiffres';
+  }
+  return $errors;
+}
+
+
+  function validNumber($errors,$value,$key,$min,$max){
+      if ($value < $min) {
+        $errors[$key] = 'Veuillez renseigner '.$min.' minimum .';
+      }elseif ($value > $max) {
+        $errors[$key] = 'Veuillez renseigner moins de '.$max.' .';
+      }
+
+    
+    return $errors;
+  }
