@@ -21,7 +21,7 @@
                 </div>
                 <ul>
                    
-                    <li><a href="">Acceuil</a></li>
+                    <li><a href="index.php?page=home">Acceuil</a></li>
                     <li><a href="index.php?page=register">Inscription</a></li>
                     <li><a href="index.php?page=login">Connexion</a></li>
                     <li><a href="#">Reserver</a></li>

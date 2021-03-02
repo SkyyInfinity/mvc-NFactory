@@ -47,16 +47,16 @@ class Database{
      * @var PDO
      */
     protected $pdo;
-
+  
     /**
      * Initialization of the pdo connection
      */
     public function __construct(){
 
         if(is_null($this->pdo)){
-
+        
             $this->getConfig();
-            $this->pdo = new \PDO('mysql:host=' . $this->dbHost .
+            $this->pdo = new \PDO('mysql:host=' . $this->dbHost . 
                                 ';dbname=' . $this->dbName,
                                 $this->dbUser,
                                 $this->dbPassword);
