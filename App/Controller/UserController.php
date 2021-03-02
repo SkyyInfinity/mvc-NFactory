@@ -1,10 +1,14 @@
 <?php
+
 namespace App\Controller;
 
 use App\Model\UserModel;
 use Vendor\Controller\Controller;
 
-class UserController extends Controller{
+require('../inc/functions.php');
+
+class UserController extends Controller
+{
 
     public function __construct()
     {
@@ -13,17 +17,34 @@ class UserController extends Controller{
 
     public function register()
     {
-        if (isset($data["email"])) {
-            $user = $this->encodeChars($data);
-            $user["password"] = password_hash($data["password"], PASSWORD_DEFAULT);
-            $user["role"] = json_encode(['user']);
-            $this->userModel->create($user);
+        $error = [];
 
-            header("Location:index.php?page=login");
+        if (isset($_POST["submitted"])) {
+
+            // $user = $this->encodeChars($_POST);
+            $user["Password"] = password_hash($_POST["Password"], PASSWORD_DEFAULT);
+            $user['FirstName'] = $_POST['FirstName'];
+            $user['LastName'] = $_POST['LastName'];
+            $user['Email'] = $_POST['email'];
+            $user['BirthDate'] = $_POST['BirthDate'];
+            $user['Address'] = $_POST['Address'];
+            $user['City']  = $_POST['City'];
+            $user['ZipCode'] = $_POST['ZipCode'];
+            $user['Phone'] = $_POST['Phone'];
+            $error = validationText($error, $_POST["FirstName"], "FirstName", 3, 25);
+            $error =  validationText($error, $_POST["LastName"], "LastName", 3, 25);
+            $error = validationEmail($error, $_POST["email"], "email");
+            if (empty($error == 0)) {
+                echo 'bravo';
+
+                $this->userModel->create($user);
+            }
+
+
+            // header("Location:index.php?page=login");
         }
 
-        $this->render("auth.register");
-
+        $this->render("auth.register", ["error" => $error]);
     }
 
     public function login()
@@ -39,12 +60,11 @@ class UserController extends Controller{
         //     } else {
         //         $error = "Utilisateur ou mot de passe incorrect.";
         //     }
-            
+
         // }
         $this->render("auth.login", [
             "user" => "test",
-            ]);
-
+        ]);
     }
 
     // public function logout()
