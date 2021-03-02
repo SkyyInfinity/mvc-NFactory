@@ -9,3 +9,4 @@ require ROOT . '/Vendor/App.php';
 App::load();
 
 require ROOT ."/Config/Routing.php";
+// require ROOT ."/inc/functions.php";

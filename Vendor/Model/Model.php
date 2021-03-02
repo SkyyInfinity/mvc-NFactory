@@ -96,6 +96,8 @@ class Model extends Database{
         }
     }
 
+
+
     /**
      * Insert informations in Database
      *
@@ -117,5 +119,29 @@ class Model extends Database{
     public function exec ($statement)
     {
         return $this->pdo->exec($statement);
+    }
+
+    /**
+     * Enregistre une ligne dans la BDD
+     *
+     * @param array $data
+     */
+    public function create(array $data)
+    {
+        // On récupère les informations d'un formulaire
+        // Ces informations sont dans le $_POST avec le name des input
+        
+        $statement = "INSERT INTO $this->table (";
+        $values = "VALUES (";
+        foreach ($data as $key => $value) {
+            $statement .= $key .",";
+            $values .= "\"". $value ."\",";
+        }
+        $statement = substr($statement,0,-1) . ") ";
+        $values = substr($values, 0, -1) . ")";
+
+        $statement .= $values;
+        $this->insert($statement);
+
     }
 }

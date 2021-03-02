@@ -2,7 +2,6 @@
 
 namespace Vendor\Model;
 
-use Vendor\Model\Model;
 
 class Query extends Model
 {
@@ -29,11 +28,14 @@ class Query extends Model
      */
     public function findAll($order = ['id' => 'ASC'])
     {
-        return $this->query('SELECT * FROM ' . $this->model . ' ' . 
+        $test = 'SELECT * FROM ' . $this->model . ' ' .
+                                $this->createOrder($order);
+        //var_dump($test);
+        return $this->query('SELECT * FROM ' . $this->model . ' ' .
                                 $this->createOrder($order),
                                 null,
                                 false
-                                );                      
+                              );
     }
 
     /**
@@ -45,7 +47,7 @@ class Query extends Model
      */
     public function findOneBy ($criteria)
     {
-        return $this->query('SELECT * FROM ' . $this->model . 
+        return $this->query('SELECT * FROM ' . $this->model .
                                 $this->createWhere($criteria),
                                 $this->classPath,
                                 true
@@ -60,7 +62,7 @@ class Query extends Model
      */
     public function findBy ($criteria, $order = ['id' => 'ASC'])
     {
-        return $this->query('SELECT * FROM ' . $this->model . 
+        return $this->query('SELECT * FROM ' . $this->model .
                                 $this->createWhere($criteria) . ' ' .
                                 $this->createOrder($order),
                                 null,
