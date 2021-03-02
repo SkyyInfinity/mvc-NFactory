@@ -46,6 +46,8 @@ fieldset legend
     /* presentation */
     color: #1E593B;
     font-weight: bold;
+    font-size: 1.2em;
+    cursor: default;
 }
 
 footer
@@ -336,6 +338,7 @@ nav ul li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 20px 0;
 }
 .meals-links li .img {
     width: 30%;
@@ -352,6 +355,7 @@ h2 {
     text-align: center;
     font-size: 1.8em;
     margin: 2em 0;
+    cursor: default;
 }
 span.price {
     margin-top: 20px;
@@ -359,4 +363,84 @@ span.price {
     font-weight: bold;
     font-size: 1.2em;
     width: 100%;
+}
+form {
+    text-align: center;
+}
+label {
+    display: block;
+}
+input {
+    outline: none;
+}
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='date'],
+input[type='tel'],
+textarea {
+    padding: 5px;
+    border: 1px solid white;
+    width: 350px;
+}
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='email']:focus,
+input[type='date']:focus,
+input[type='tel']:focus,
+textarea:focus {
+    border: 1px solid #EF4036;
+}
+.champ {
+    margin: 10px 0;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    nav {
+        flex-direction: column;
+    }
+    #l-content {
+        margin: 190px 0;
+    }
+}
+@media screen and (max-width: 700px) {
+    .meals-links li {
+        flex-direction: column;
+    }
+    .meals-links li .img {
+        width: 50%;
+        margin-right: 0;
+        text-align: center;
+    }
+    .meals-links li .info {
+        width: 100%;
+        text-align: center;
+    }
+    input[type='text'],
+    input[type='password'],
+    input[type='email'],
+    input[type='date'],
+    input[type='tel'],
+    textarea {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 500px) {
+    #l-content {
+        margin: 300px 0;
+    }
+    .logo h1 span {
+        display: block;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        margin-left: 0;
+    }
+    nav ul li:first-child {
+        margin-bottom: 1em;
+    }
 }

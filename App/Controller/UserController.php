@@ -34,14 +34,11 @@ class UserController extends Controller
             $error = validationText($error, $_POST["FirstName"], "FirstName", 3, 25);
             $error =  validationText($error, $_POST["LastName"], "LastName", 3, 25);
             $error = validationEmail($error, $_POST["email"], "email");
-            if (empty($error == 0)) {
-                echo 'bravo';
 
+            if (count($error) == 0) {
                 $this->userModel->create($user);
+                header("Location:index.php?page=login");
             }
-
-
-            // header("Location:index.php?page=login");
         }
 
         $this->render("auth.register", ["error" => $error]);
