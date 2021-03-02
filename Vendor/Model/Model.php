@@ -97,10 +97,7 @@ class Model extends Database{
     }
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 2a83621a02b687d5859a89eb8ef50e2e7ec20032
     /**
      * Insert informations in Database
      *
@@ -123,9 +120,6 @@ class Model extends Database{
     {
         return $this->pdo->exec($statement);
     }
-<<<<<<< HEAD
-}
-=======
 
     /**
      * Enregistre une ligne dans la BDD
@@ -136,7 +130,7 @@ class Model extends Database{
     {
         // On récupère les informations d'un formulaire
         // Ces informations sont dans le $_POST avec le name des input
-        
+
         $statement = "INSERT INTO $this->table (";
         $values = "VALUES (";
         foreach ($data as $key => $value) {
@@ -150,5 +144,5 @@ class Model extends Database{
         $this->insert($statement);
 
     }
+
 }
->>>>>>> 2a83621a02b687d5859a89eb8ef50e2e7ec20032
