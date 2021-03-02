@@ -1,24 +1,37 @@
 <?php
 
 use App\Controller\MealController;
+use App\Controller\UserController;
+
 
 // $connection = new ConnectionController();
 if (!empty($_GET["page"])) {
-$page = $_GET["page"];
+    $page = $_GET["page"];
 } else {
     $page = "home";
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 762aa3a1176e542b5871105533aa2465209bd2d2
 switch ($page) {
     case 'home':
-         $meal = new MealController();
-         $meal->home();
+        $meal = new MealController();
+        $meal->home();
+        break;
+    case 'register':
+        $user = new UserController();
+        $user->register();
+        break;
+    case 'login':
+        $user = new UserController();
+        $user->login();
         break;
     default:
-         $meal = new MealController();
-         $meal->home();
+        $meal = new MealController();
+        $meal->home();
         break;
 }
 

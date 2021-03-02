@@ -2,7 +2,7 @@
 
 use Vendor\App;
 
-define('ROOT', dirname(__DIR__));
+define('ROOT', dirname(__DIR__) . '/');
 require ROOT . '/Vendor/App.php';
 
 // Instanciation de la class App et appel de la fonction load pour charger l'autoloader et la session

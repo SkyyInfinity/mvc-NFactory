@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Restaurant | <?= $title ?></title>
+    <title>Restaurant | <?php if(!empty($title)){echo $title;}; ?></title>
 </head>
 
 <body>
@@ -20,10 +20,13 @@
                     <h1>Restaurant</h1>
                 </div>
                 <ul>
-                    <li><a href="#">LIEN</a></li>
-                    <li><a href="#">LIEN</a></li>
-                    <li><a href="#">LIEN</a></li>
-                    <li><a href="#">LIEN</a></li>
+                   
+                    <li><a href="">Acceuil</a></li>
+                    <li><a href="index.php?page=register">Inscription</a></li>
+                    <li><a href="index.php?page=login">Connexion</a></li>
+                    <li><a href="#">Reserver</a></li>
+                    <li><a href="#">Commander</a></li>
+
                 </ul>
             </nav>
         </div>
