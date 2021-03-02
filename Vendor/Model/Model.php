@@ -96,6 +96,11 @@ class Model extends Database{
         }
     }
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 762aa3a1176e542b5871105533aa2465209bd2d2
     /**
      * Insert informations in Database
      *
