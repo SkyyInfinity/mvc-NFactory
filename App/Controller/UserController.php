@@ -13,14 +13,14 @@ class UserController extends Controller{
 
     public function register()
     {
-        // if (isset($data["email"])) {
-        //     $user = $this->encodeChars($data);
-        //     $user["password"] = password_hash($data["password"], PASSWORD_DEFAULT);
-        //     $user["role"] = json_encode(['user']);
-        //     $this->userModel->create($user);
+        if (isset($data["email"])) {
+            $user = $this->encodeChars($data);
+            $user["password"] = password_hash($data["password"], PASSWORD_DEFAULT);
+            $user["role"] = json_encode(['user']);
+            $this->userModel->create($user);
 
-        //     header("Location:index.php?page=login");
-        // }
+            header("Location:index.php?page=login");
+        }
 
         $this->render("auth.register");
 
