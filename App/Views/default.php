@@ -26,7 +26,7 @@
                 </div>
                 <ul>
                     <?php if(isset($_SESSION['user'])) : ?>
-                    <li><a class="button button-primary" href="#">Reserver</a></li>
+                    <li><a class="button button-primary" href="index.php?page=booking">Reserver</a></li>
                     <li><a class="button button-primary" href="#">Commander</a></li>
                     <?php else : ?>
                     <li><a class="button button-primary" href="index.php?page=register">Créer un compte</a></li>

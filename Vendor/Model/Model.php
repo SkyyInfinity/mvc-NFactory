@@ -130,7 +130,7 @@ class Model extends Database{
     {
         // On récupère les informations d'un formulaire
         // Ces informations sont dans le $_POST avec le name des input
-        
+
         $statement = "INSERT INTO $this->table (";
         $values = "VALUES (";
         foreach ($data as $key => $value) {
@@ -144,4 +144,5 @@ class Model extends Database{
         $this->insert($statement);
 
     }
+
 }
