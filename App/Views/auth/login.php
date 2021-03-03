@@ -11,7 +11,7 @@ $title = "Connexion";
 <div class="wrap2">
     <h2>Connexion</h2>
 
-    <form action="index.php?page=login" method="post">
+    <form action="" method="post">
         <fieldset>
             <legend><i class="fas fa-user-lock"></i> Informations d'authentification</legend>
             <div class="champ">

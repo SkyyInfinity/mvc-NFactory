@@ -40,7 +40,7 @@ class UserController extends Controller
             }
             $user['ZipCode'] = $_POST['ZipCode'];
             $user['Phone'] = $_POST['Phone'];
-        
+
             $error = validationText($error, $_POST["FirstName"], "FirstName", 3, 25);
             $error =  validationText($error, $_POST["LastName"], "LastName", 3, 25);
             $error = validationEmail($error, $_POST["Email"], "Email");
@@ -49,9 +49,9 @@ class UserController extends Controller
             $error = validPhoneNumber($error, $_POST['Phone'], 'Phone');
 
             $email = $user['Email'];
-            $criteria['Email']="$email";
-            
-            $userVerify = $this->userModel->findOneBy ($criteria);
+            $criteria['Email'] = "$email";
+
+            $userVerify = $this->userModel->findOneBy($criteria);
 
             if (!empty($userVerify)) {
                 $error['Email'] = "Cet email existe déjà";
@@ -60,11 +60,8 @@ class UserController extends Controller
             if (count($error) == 0) {
                 $this->userModel->create($user);
 
-            header("Location:index.php?page=login&id=new");
-
+                header("Location:index.php?page=login&id=new");
             }
-
-
         }
 
         $this->render("auth.register", ["error" => $error]);
@@ -74,28 +71,31 @@ class UserController extends Controller
     {
         $error = [];
 
-        $user["Password"] = password_hash($_POST["Password"], PASSWORD_DEFAULT);
-        $user['Email'] = $_POST['Email'];
-        // $error = validationEmail($error, $_POST["Email"], "Email");
+        if (isset($_POST["submitted"])) {
+            $user["Password"] = $_POST['Password'];
+            $user['Email'] = $_POST['Email'];
+            // $error = validationEmail($error, $_POST["Email"], "Email");
 
-        $email = $user['Email'];
-        $criteria['Email']="$email";
-        $userVerifyEmail = $this->userModel->findOneBy ($criteria);
-        if (isset($userVerifyEmail)) {
+            $email = $user['Email'];
 
-            if ($userVerifyEmail && password_verify($_POST["Password"], $user["Password"])) {
+            $criteria['Email'] = "$email";
+            $userVerifyEmail = $this->userModel->findOneBy($criteria);            
+            if ($userVerifyEmail && password_verify($_POST["Password"], $userVerifyEmail->Password)) {
+
                 $_SESSION["user"] = $user;
                 header("Location:index.php");
             } else {
-                $error = "Utilisateur ou mot de passe incorrect.";
-            
+                $error["Password"] = "Utilisateur ou mot de passe incorrect.";
             }
 
-        }
-        $this->render("auth.login", [
-            "error" => "$error"
-        ]);
 
+        }
+
+
+        
+        $this->render("auth.login", [
+            "error" => $error
+        ]);
     }
 
     // public function logout()
