@@ -192,9 +192,9 @@ function validPostalNull($errors,$value,$key){
         $errors[$key] = 'Veuillez renseigner moins de '.$max.' .';
       }
 
-    
     return $errors;
   }
+
   function validPhoneNumber($errors,$value,$key){
     if(!empty($value)){
       if(!is_numeric($value) || strlen($value) != 10) {
@@ -206,3 +206,10 @@ function validPostalNull($errors,$value,$key){
     }
     return $errors;
   }
+
+	function emptyError($errors,$value,$key){
+	  if(empty($value)){
+	    $errors[$key] = 'Ce champ ne doit pas être vide.';
+	  }
+	  return $errors;
+	}

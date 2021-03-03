@@ -2,6 +2,7 @@
 
 use App\Controller\MealController;
 use App\Controller\UserController;
+use App\Controller\BookingController;
 
 
 // $connection = new ConnectionController();
@@ -23,6 +24,10 @@ switch ($page) {
     case 'login':
         $user = new UserController();
         $user->login($_POST);
+        break;
+    case 'booking':
+        $booking = new BookingController();
+        $booking->booking();
         break;
     default:
         $meal = new MealController();

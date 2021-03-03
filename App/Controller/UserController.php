@@ -64,6 +64,7 @@ class UserController extends Controller
 
             }
 
+
         }
 
         $this->render("auth.register", ["error" => $error]);
