@@ -25,6 +25,10 @@ switch ($page) {
         $user = new UserController();
         $user->login($_POST);
         break;
+    case "logout":
+        $user = new UserController();
+        $user->logout();
+        break;
     case 'booking':
         $booking = new BookingController();
         $booking->booking();
