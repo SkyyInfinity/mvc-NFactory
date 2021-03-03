@@ -3,7 +3,7 @@ $title = "Inscription";
 ?>
 
 <div class="wrap2">
-    <h2>Inscription</h2>
+    <h2>Créer un compte</h2>
     <form action="" method="post">
         <fieldset>
             <legend><i class="fas fa-address-book"></i> Identité et Coordonnées</legend>
