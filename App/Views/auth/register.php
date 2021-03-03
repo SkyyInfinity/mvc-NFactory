@@ -57,7 +57,6 @@ $title = "Inscription";
                 <?php endif; ?>
             </div>
         </fieldset>
-
         <fieldset>
             <legend><i class="fas fa-user-lock"></i> Informations d'authentification</legend>
             <div class="champ">
@@ -75,7 +74,6 @@ $title = "Inscription";
                 <?php endif; ?>
             </div>
         </fieldset>
-
         <div class="submit champ">
             <input class="button button-primary" type="submit" name="submitted" value="S'inscrire">
         </div>

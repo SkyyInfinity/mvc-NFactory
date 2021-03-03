@@ -83,11 +83,11 @@ class Model extends Database{
     {
         $query = $this->pdo->query($request);
 
-        if(is_null($className)){
+        // if(is_null($className)){
             $query->setFetchMode(\PDO::FETCH_OBJ);
-        } else {
-            $query->setFetchMode(\PDO::FETCH_CLASS, $className);
-        }
+        // } else {
+        //     $query->setFetchMode(\PDO::FETCH_CLASS, $className);
+        // }
 
         if ($one) {
             return $query->fetch();

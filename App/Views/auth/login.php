@@ -1,3 +1,9 @@
+<?php if (!empty($_GET['id']) && $_GET['id'] == 'new') {
+    ?>
+    <p>Bienvenue</p>
+    <?php
+} ?>
+
 <?php
 $title = "Connexion";
 ?>

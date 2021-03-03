@@ -23,7 +23,7 @@ switch ($page) {
         break;
     case 'login':
         $user = new UserController();
-        $user->login();
+        $user->login($_POST);
         break;
     case 'booking':
         $booking = new BookingController();

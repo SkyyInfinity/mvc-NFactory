@@ -23,22 +23,48 @@ class UserController extends Controller
 
             // $user = $this->encodeChars($_POST);
             $user["Password"] = password_hash($_POST["Password"], PASSWORD_DEFAULT);
+            if (empty($_POST['Password'])) {
+                $error['Password'] = 'Veillez remplir ce champ';
+            }
             $user['FirstName'] = $_POST['FirstName'];
             $user['LastName'] = $_POST['LastName'];
-            $user['Email'] = $_POST['email'];
+            $user['Email'] = $_POST['Email'];
             $user['BirthDate'] = $_POST['BirthDate'];
             $user['Address'] = $_POST['Address'];
+            if (empty($_POST['Address'])) {
+                $error['Address'] = 'Veillez remplir ce champ';
+            }
             $user['City']  = $_POST['City'];
+            if (empty($_POST['City'])) {
+                $error['City'] = 'Veillez remplir ce champ';
+            }
             $user['ZipCode'] = $_POST['ZipCode'];
             $user['Phone'] = $_POST['Phone'];
+        
             $error = validationText($error, $_POST["FirstName"], "FirstName", 3, 25);
             $error =  validationText($error, $_POST["LastName"], "LastName", 3, 25);
-            $error = validationEmail($error, $_POST["email"], "email");
+            $error = validationEmail($error, $_POST["Email"], "Email");
+            $error = validDate($error, $_POST['BirthDate'], 'BirthDate');
+            $error = validPostal($error, $_POST['ZipCode'], 'ZipCode');
+            $error = validPhoneNumber($error, $_POST['Phone'], 'Phone');
+
+            $email = $user['Email'];
+            $criteria['Email']="$email";
+            
+            $userVerify = $this->userModel->findOneBy ($criteria);
+
+            if (!empty($userVerify)) {
+                $error['Email'] = "Cet email existe déjà";
+            }
 
             if (count($error) == 0) {
                 $this->userModel->create($user);
-                header("Location:index.php?page=login");
+
+            header("Location:index.php?page=login&id=new");
+
             }
+
+
         }
 
         $this->render("auth.register", ["error" => $error]);
@@ -46,22 +72,30 @@ class UserController extends Controller
 
     public function login()
     {
-        // if (isset($data["email"])) {
+        $error = [];
 
-        //     $user = $this->userModel->getUserByEmail($data["email"]);
+        $user["Password"] = password_hash($_POST["Password"], PASSWORD_DEFAULT);
+        $user['Email'] = $_POST['Email'];
+        // $error = validationEmail($error, $_POST["Email"], "Email");
 
-        //     if ($user && password_verify($data["password"], $user->password)) {
-        //         $_SESSION["user"] = $user;
-        //         $_SESSION["user"]->role = json_decode($user->role);
-        //         header("Location:index.php");
-        //     } else {
-        //         $error = "Utilisateur ou mot de passe incorrect.";
-        //     }
+        $email = $user['Email'];
+        $criteria['Email']="$email";
+        $userVerifyEmail = $this->userModel->findOneBy ($criteria);
+        if (isset($userVerifyEmail)) {
 
-        // }
+            if ($userVerifyEmail && password_verify($_POST["Password"], $user["Password"])) {
+                $_SESSION["user"] = $user;
+                header("Location:index.php");
+            } else {
+                $error = "Utilisateur ou mot de passe incorrect.";
+            
+            }
+
+        }
         $this->render("auth.login", [
-            "user" => "test",
+            "error" => "$error"
         ]);
+
     }
 
     // public function logout()
