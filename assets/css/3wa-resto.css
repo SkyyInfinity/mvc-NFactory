@@ -347,6 +347,7 @@ nav ul li {
 .meals-links li .img img {
     width: 100%;
     object-fit: cover;
+    pointer-events: none;
 }
 .meals-links li .info {
     width: 70%;
@@ -370,7 +371,8 @@ form {
 label {
     display: block;
 }
-input {
+input,
+select {
     outline: none;
 }
 input[type='text'],
@@ -378,23 +380,32 @@ input[type='password'],
 input[type='email'],
 input[type='date'],
 input[type='tel'],
+input[type='time'],
+select,
 textarea {
     padding: 5px;
     border: 1px solid white;
     width: 350px;
+}
+input[type='time'] {
+    width: 100px;
 }
 input[type='text']:focus,
 input[type='password']:focus,
 input[type='email']:focus,
 input[type='date']:focus,
 input[type='tel']:focus,
+input[type='time']:focus,
+select:focus,
 textarea:focus {
     border: 1px solid #EF4036;
 }
 .champ {
     margin: 10px 0;
 }
-
+input.date {
+    margin: 0;
+}
 
 
 @media screen and (max-width: 900px) {
@@ -402,7 +413,7 @@ textarea:focus {
         flex-direction: column;
     }
     #l-content {
-        margin: 190px 0;
+        margin-top: 190px;
     }
 }
 @media screen and (max-width: 700px) {
@@ -426,10 +437,13 @@ textarea:focus {
     textarea {
         width: 100%;
     }
+    input.date {
+        margin-top: 15px;
+    }
 }
 @media screen and (max-width: 500px) {
     #l-content {
-        margin: 300px 0;
+        margin-top: 300px;
     }
     .logo h1 span {
         display: block;

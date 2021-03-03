@@ -9,7 +9,7 @@ $title = "Connexion";
 ?>
 
 <div class="wrap2">
-    <h2>Connexion</h2>
+    <h2>Se connecter</h2>
 
     <form action="" method="post">
         <fieldset>

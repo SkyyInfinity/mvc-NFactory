@@ -8,7 +8,7 @@ $title = 'Home';
     <?php foreach($meals as $meal) : ?>
       <li>
         <div class="img">
-          <img loading="lazy" onerror="this.src='../assets/img/meals/no-photo.png'" src="../assets/img/meals/<?php if(isset($meal->Photo)){echo $meal->Photo;}else{echo 'no-photo.png';} ?>" alt="<?php if(isset($meal->Name)){echo $meal->Name;} ?>">
+          <img loading="lazy" onerror="this.src='./assets/img/meals/no-photo.png'" src="./assets/img/meals/<?php if(isset($meal->Photo)){echo $meal->Photo;}else{echo 'no-photo.png';} ?>" alt="<?php if(isset($meal->Name)){echo $meal->Name;} ?>">
         </div>
         <div class="info">
           <h3><?php if(isset($meal->Name)){echo $meal->Name;} ?></h3>

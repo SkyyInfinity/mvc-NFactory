@@ -30,4 +30,12 @@ class Controller
     $content = ob_get_clean();
     require ROOT . '/App/Views/default.php';
   }
+  /**
+   * Permet de rediriger vers une autre page
+   *
+   * @param string $route
+   */
+  public function redirectToRoute(string $route) {
+    header('location:index.php?page=' . $route);
+  }
 }
