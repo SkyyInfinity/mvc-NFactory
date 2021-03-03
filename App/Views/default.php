@@ -26,7 +26,8 @@
                 </div>
                 <ul>
                     <?php if(isset($_SESSION['user'])) : ?>
-                    <li><p class="welcom">Bienvenue <?= $_SESSION['user']['FirstName'] ?></p></li>
+                        
+                    <li><p class="welcome">Bienvenue <span><?= $_SESSION['user']['LastName'] ?></span></p></li>
                     <li><a class="button button-primary" href="booking">Reserver</a></li>
                     <li><a class="button button-primary" href="order">Commander</a></li>
                     <?php else : ?>

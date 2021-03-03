@@ -72,27 +72,29 @@ class UserController extends Controller
         $error = [];
 
         if (isset($_POST["submitted"])) {
+
             $user["Password"] = $_POST['Password'];
             $user['Email'] = $_POST['Email'];
-            // $error = validationEmail($error, $_POST["Email"], "Email");
-
             $email = $user['Email'];
-
             $criteria['Email'] = "$email";
-            $userVerifyEmail = $this->userModel->findOneBy($criteria);            
-            if ($userVerifyEmail && password_verify($_POST["Password"], $userVerifyEmail->Password)) {
+            $userVerifyEmail = $this->userModel->findOneBy($criteria);     
+            $user['LastName'] = $userVerifyEmail->LastName;
 
-                $_SESSION["user"] = $user;
-                header("Location:index.php");
-            } else {
-                $error["Password"] = "Utilisateur ou mot de passe incorrect.";
+            $error = validationEmail($error, $_POST['Email'], 'Email');
+            if(empty($_POST['Password'])) {
+                $error['Password'] = 'Veuillez renseigner ce champ.';
             }
+            if(count($error) == 0) {
+                if ($userVerifyEmail && password_verify($_POST["Password"], $userVerifyEmail->Password)) {
 
-
+                    $_SESSION["user"] = $user;
+                    header("Location:index.php");
+    
+                } else {
+                    $error["Password"] = "Utilisateur ou mot de passe incorrect.";
+                }
+            }
         }
-
-
-        
         $this->render("auth.login", [
             "error" => $error
         ]);

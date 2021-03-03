@@ -406,7 +406,9 @@ textarea:focus {
 input.date {
     margin: 0;
 }
-
+.welcome span {
+    font-weight: bold;
+}
 
 @media screen and (max-width: 900px) {
     nav {
