@@ -22,7 +22,7 @@ switch ($page) {
         break;
     case 'login':
         $user = new UserController();
-        $user->login();
+        $user->login($_POST);
         break;
     default:
         $meal = new MealController();

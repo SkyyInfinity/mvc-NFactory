@@ -195,3 +195,14 @@ function validPostalNull($errors,$value,$key){
     
     return $errors;
   }
+  function validPhoneNumber($errors,$value,$key){
+    if(!empty($value)){
+      if(!is_numeric($value) || strlen($value) != 10) {
+        $errors[$key] = 'Veuillez renseigner un Numéro de télephone valide';
+      }
+    }
+    else {
+      $errors[$key] = 'Veuillez renseigner ce champ';
+    }
+    return $errors;
+  }

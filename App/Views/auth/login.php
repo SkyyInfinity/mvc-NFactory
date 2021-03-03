@@ -1,3 +1,8 @@
+<?php if (!empty($_GET['id']) && $_GET['id'] == 'new') {
+    ?>
+    <p>Bienvenue</p>
+    <?php
+} ?>
 <h1>Connexion</h1>
 
 <form action="index.php?page=login" method="post">
@@ -7,4 +12,4 @@
    
 </form>
 <?php 
-var_dump($user);
+// var_dump($user);
