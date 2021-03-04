@@ -1,16 +1,22 @@
-<?php if (!empty($_GET['id']) && $_GET['id'] == 'new') {
-    ?>
-    <p>Bienvenue</p>
-    <?php
-} ?>
-
 <?php
+if(isLoggedv2()) {
+    redirect('./');
+}
+
 $title = "Connexion";
 ?>
 
 <div class="wrap2">
     <h2>Se connecter</h2>
-
+     
+    <?php if(!empty($_SESSION['new'])) : ?>
+        <?php if($_SESSION['new'] == 'new') : ?>
+           <p>Bienvenue sur notre site !</p>
+        <?php
+        $_SESSION = [];
+        endif ?>
+    <?php endif ?>
+    
     <form action="" method="post">
         <fieldset>
             <legend><i class="fas fa-user-lock"></i> Informations d'authentification</legend>

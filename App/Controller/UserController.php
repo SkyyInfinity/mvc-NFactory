@@ -5,8 +5,6 @@ namespace App\Controller;
 use App\Model\UserModel;
 use Vendor\Controller\Controller;
 
-require('../inc/functions.php');
-
 class UserController extends Controller
 {
 
@@ -60,7 +58,8 @@ class UserController extends Controller
             if (count($error) == 0) {
                 $this->userModel->create($user);
 
-                header("Location:login&id=new");
+                $_SESSION['new'] = 'new';
+                redirect('login');
             }
         }
 
@@ -80,16 +79,20 @@ class UserController extends Controller
             $userVerifyEmail = $this->userModel->findOneBy($criteria);
 
 
-
             $error = validationEmail($error, $_POST['Email'], 'Email');
             if(empty($_POST['Password'])) {
                 $error['Password'] = 'Veuillez renseigner ce champ.';
             }
             if(count($error) == 0) {
                 if ($userVerifyEmail && password_verify($_POST["Password"], $userVerifyEmail->Password)) {
+
                     $user['LastName'] = $userVerifyEmail->LastName;
+
+
+                    $user = $userVerifyEmail;
+
                     $_SESSION["user"] = $user;
-                    header("Location:home");
+                    header("Location:./");
                 } else {
                     $error["Password"] = "Utilisateur ou mot de passe incorrect.";
                 }
@@ -103,7 +106,7 @@ class UserController extends Controller
     public function logout()
     {
         session_destroy();
-        header("Location:home");
+        header("Location:./");
     }
 
     // public function getUser()

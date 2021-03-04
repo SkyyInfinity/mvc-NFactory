@@ -1,4 +1,8 @@
 <?php
+if(isLoggedv2()) {
+    redirect('./');
+}
+
 $title = "Inscription";
 ?>
 

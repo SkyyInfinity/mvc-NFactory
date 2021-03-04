@@ -2,6 +2,8 @@
 
 use Vendor\App;
 
+include('../inc/functions.php');
+
 define('ROOT', dirname(__DIR__) . '/');
 require ROOT . '/Vendor/App.php';
 
@@ -9,4 +11,3 @@ require ROOT . '/Vendor/App.php';
 App::load();
 
 require ROOT ."/Config/Routing.php";
-// require ROOT ."/inc/functions.php";

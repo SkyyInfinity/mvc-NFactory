@@ -22,16 +22,24 @@
         <div class="wrap">
             <nav>
                 <div class="logo">
-                    <a href="home"><h1>Restaurant <span>| Made in America !</span></h1></a>
+                    <a href="./"><h1>Restaurant <span>Made in America !</span></h1></a>
                 </div>
                 <ul>
                     <?php if(isset($_SESSION['user'])) : ?>
-
-                    <li><p class="welcome">Bienvenue <span><?= $_SESSION['user']['LastName'] ?></span></p></li>
+                    <li>
+                        <p class="welcome">Bienvenue 
+                            <span>
+                                <?php if(!empty($_SESSION['user']->LastName) && !empty($_SESSION['user']->FirstName)) : ?>
+                                <?= $_SESSION['user']->FirstName . ' ' . $_SESSION['user']->LastName ?>
+                                <?php else : ?>
+                                <?= 'Votre Nom' ?>
+                                <?php endif; ?> !
+                            </span>
+                        </p>
+                    </li>
                     <li><a class="button button-primary" href="booking">Reserver</a></li>
                     <li><a class="button button-primary" href="order">Commander</a></li>
-                    <li><a class="button button-primary" href="logout">Se Deconnecter</a></li>
-
+                    <li><a class="button" href="logout">Se déconnecter</a></li>
                     <?php else : ?>
                     <li><a class="button button-primary" href="register">Créer un compte</a></li>
                     <li><a class="button button-primary" href="login">Se connecter</a></li>
@@ -55,6 +63,6 @@
 
     <!-- JAVASCRIPT -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="./assets/js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./assets/js/no-photo.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

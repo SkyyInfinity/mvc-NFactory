@@ -106,6 +106,21 @@ function isLogged(){
   }
   return false;
 }
+
+function isLoggedv2() {
+  if(!empty($_SESSION['user'])) {
+    if(!empty($_SESSION['user']->Id) && is_numeric($_SESSION['user']->Id)) {
+      if(!empty($_SESSION['user']->LastName)) {
+        if(!empty($_SESSION['user']->FirstName)) {
+          if(!empty($_SESSION['user']->Email)) {
+            return true;
+          }
+        }
+      }
+    }
+  }
+  return false;
+}
 // L O G O U T ///////////////////////////////////////////////////////////////////////
 function logout($page) {
     session_start();
