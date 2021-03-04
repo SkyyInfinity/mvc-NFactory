@@ -22,7 +22,7 @@
         <div class="wrap">
             <nav>
                 <div class="logo">
-                    <a href="home"><h1>Restaurant <span>Made in America !</span></h1></a>
+                    <a href="./"><h1>Restaurant <span>Made in America !</span></h1></a>
                 </div>
                 <ul>
                     <?php if(isset($_SESSION['user'])) : ?>

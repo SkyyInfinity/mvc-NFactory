@@ -58,7 +58,8 @@ class UserController extends Controller
             if (count($error) == 0) {
                 $this->userModel->create($user);
 
-                header("Location:login&id=new");
+                $_SESSION['new'] = 'new';
+                redirect('login');
             }
         }
 
@@ -86,7 +87,7 @@ class UserController extends Controller
 
                     $user = $userVerifyEmail;
                     $_SESSION["user"] = $user;
-                    header("Location:home");
+                    header("Location:./");
                 } else {
                     $error["Password"] = "Utilisateur ou mot de passe incorrect.";
                 }
@@ -100,7 +101,7 @@ class UserController extends Controller
     public function logout()
     {
         session_destroy();
-        header("Location:home");
+        header("Location:./");
     }
 
     // public function getUser()

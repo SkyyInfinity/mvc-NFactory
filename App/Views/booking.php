@@ -34,7 +34,7 @@ $title = 'Réserver';
     </fieldset>
     <div class="champ">
       <input class="button button-primary" type="submit" name="submitted" value="Réserver">
-      <a class="button" href="home">Annuler</a>
+      <a class="button" href="./">Annuler</a>
     </div>
   </form>
 </div>
