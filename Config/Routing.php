@@ -3,6 +3,7 @@
 use App\Controller\MealController;
 use App\Controller\UserController;
 use App\Controller\BookingController;
+use App\Controller\AdminController;
 use App\Controller\OrderController;
 
 
@@ -34,6 +35,10 @@ switch ($page) {
         $booking = new BookingController();
         $booking->booking();
         break;
+
+    case 'admin':
+        $admin = new AdminController();
+        $admin->admin();
     case 'order':
         $order = new OrderController();
         $order->order();
