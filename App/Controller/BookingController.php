@@ -3,7 +3,6 @@ namespace App\Controller;
 
 use App\Model\BookingModel;
 use Vendor\Controller\Controller;
-require('../inc/functions.php');
 
 /**
  * Le CRUD (create, read, update, delete) sont l'ensemble des méthodes permettant de manipuler
