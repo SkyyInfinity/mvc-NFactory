@@ -3,10 +3,11 @@
 namespace App\Controller;
 
 use App\Model\BookingModel;
+use App\Model\OrderModel;
 use Vendor\Controller\Controller;
 
 
-require('../inc/functions.php');
+
 
 class AdminController extends Controller
 {
@@ -33,8 +34,24 @@ class AdminController extends Controller
             $admin->FirstName = $getFirstName[0]->FirstName;
         }
 
+         /**
+         * fonction qui liste toute les reservations de tables
+         * 
+         */
+
+        $orderModel = new OrderModel();
+
+        $orders = $orderModel->myFindAll();
+
+        foreach ($orders as $order) {
+            $id = $order->User_Id;
+            $orderFirstName = $orderModel->jointure($id);
+            $order->FirstName = $orderFirstName[0]->FirstName;
+        }
+
         $this->render("admin.admin", [
             "admins" => $admins,
+            "orders"=> $orders
 
         ]);
     }

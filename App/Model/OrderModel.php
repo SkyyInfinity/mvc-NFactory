@@ -18,5 +18,20 @@ class OrderModel extends Query{
      */
     protected $table = "order";
 
+     /**
+     * Retourne le prenom d'un user
+     *
+     * @return array
+     */
+    public function jointure($id) {
+        $statement = "SELECT DISTINCT user.FirstName FROM user INNER JOIN `order` ON user.Id = order.User_Id WHERE user.Id = $id ";
+        return $this->query($statement, null, false);
+    }
+
+    public function myFindAll(){
+        $statement = "SELECT * FROM `order` ORDER BY id ASC";
+        return $this->query($statement, null, false);
+
+    }
 
 }

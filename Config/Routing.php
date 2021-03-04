@@ -39,6 +39,7 @@ switch ($page) {
     case 'admin':
         $admin = new AdminController();
         $admin->admin();
+        break;
     case 'order':
         $order = new OrderController();
         $order->order();

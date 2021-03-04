@@ -24,6 +24,26 @@ $title = 'Booking des commandes';
             </tr>
             <?php endforeach; ?>
     </table>
+
+    <table class="generic-table">
+        <caption>Dernières commandes</caption>
+        <tr class="colorful">
+            <th>Prénom</th>
+            <th>Prix total</th>
+            <th>CreationTimestamp</th>
+        </tr>
+        <?php foreach($orders as $order) : ?>
+            <tr>
+            <td><?php if(isset($order->FirstName)){echo $order->FirstName;} ?></td>
+
+                <td><?php if(isset($order->TotalAmount)){echo $order->TotalAmount;} ?></td>
+                
+                <td><?php if(isset($order->CreationTimestamp)){echo $order->CreationTimestamp;} ?></td>
+            </tr>
+            <?php endforeach; ?>
+    </table>
+
+
 </div>
 
 
