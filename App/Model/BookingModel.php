@@ -19,17 +19,15 @@ class BookingModel extends Query{
     protected $table = "booking";
 
     /**
-     * Met à jour une catégorie dans la BDD
+     * Retourne le prenom d'un user les plus actifs
      *
-     * @param int $id
-     * @param array $data
+     * @return array
      */
-    public function update(int $id, array $data)
-    {
-        $statement = "UPDATE $this->table SET
-                        Name = :Name
-                        WHERE id = $id";
+    public function jointure($id) {
+        $statement = "SELECT DISTINCT user.FirstName FROM user INNER JOIN booking ON user.Id = booking.User_Id WHERE user.Id = $id ";
+        return $this->query($statement, null, false);
 
-        $this->db->postData($statement, $data);
     }
+    
+
 }

@@ -28,14 +28,14 @@ class UserModel extends Query{
      * @param int $id
      * @param array $data
      */
-    public function update(int $id, array $data)
-    {
-        $statement = "UPDATE $this->table SET
-                        Name = :Name
-                        WHERE id = $id";
+    // public function update(int $id, array $data)
+    // {
+    //     $statement = "UPDATE $this->table SET
+    //                     Name = :Name
+    //                     WHERE id = $id";
 
-        $this->db->insert($statement, $data);
-    }
+    //     $this->db->insert($statement, $data);
+    // }
 
     
 }

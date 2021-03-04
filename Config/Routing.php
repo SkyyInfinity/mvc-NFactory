@@ -3,6 +3,8 @@
 use App\Controller\MealController;
 use App\Controller\UserController;
 use App\Controller\BookingController;
+use App\Controller\AdminController;
+
 
 
 // $connection = new ConnectionController();
@@ -32,6 +34,10 @@ switch ($page) {
     case 'booking':
         $booking = new BookingController();
         $booking->booking();
+        break;
+    case 'admin':
+        $admin = new AdminController();
+        $admin->admin();
         break;
     default:
         $meal = new MealController();

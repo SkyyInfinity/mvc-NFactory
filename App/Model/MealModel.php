@@ -24,12 +24,12 @@ class MealModel extends Query{
      * @param int $id
      * @param array $data
      */
-    public function update(int $id, array $data)
-    {
-        $statement = "UPDATE $this->table SET
-                        Name = :Name
-                        WHERE id = $id";
+    // public function update(int $id, array $data)
+    // {
+    //     $statement = "UPDATE $this->table SET
+    //                     Name = :Name
+    //                     WHERE id = $id";
 
-        $this->db->postData($statement, $data);
-    }
+    //     $this->db->postData($statement, $data);
+    // }
 }
