@@ -78,6 +78,7 @@ class UserController extends Controller
             $criteria['Email'] = "$email";
             $userVerifyEmail = $this->userModel->findOneBy($criteria);
 
+
             $error = validationEmail($error, $_POST['Email'], 'Email');
             if(empty($_POST['Password'])) {
                 $error['Password'] = 'Veuillez renseigner ce champ.';
@@ -85,7 +86,11 @@ class UserController extends Controller
             if(count($error) == 0) {
                 if ($userVerifyEmail && password_verify($_POST["Password"], $userVerifyEmail->Password)) {
 
+                    $user['LastName'] = $userVerifyEmail->LastName;
+
+
                     $user = $userVerifyEmail;
+
                     $_SESSION["user"] = $user;
                     header("Location:./");
                 } else {
